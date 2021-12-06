@@ -21,8 +21,7 @@ spark = SparkSession.builder.appName("SpamClassifier").getOrCreate()
 rw = spark.read.format("csv").option("header", "true").load("/home/pes1ug19cs341/Desktop/BigData/Project/train.csv")
 rw.show(5)
 
-#Training Data
-trainingData, testData = rw.randomSplit([0.7, 0.3])
+
 # DATA PROCESSING
 tknizer = Tokenizer().setInputCol('Message').setOutputCol('words')
 stopwrds = StopWordsRemover().getStopWords() + ['-']
