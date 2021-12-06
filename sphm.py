@@ -40,7 +40,7 @@ preprocessed.transform(rw).show(5)
 
 
 
-'''mdlnb = NaiveBayes(smoothing = 1)
+mdlnb = NaiveBayes(smoothing = 1)
 pipeline = Pipeline(stages = [tknizer, rem, cvmodel, ind, mdlnb])
 mdl = pipeline.fit("train.csv")
 predctn = mdl.transform("test.csv")
@@ -84,7 +84,7 @@ if __name__ == "__main__":
     lines.foreachRDD(process)
 
     ssc.start()
-    ssc.awaitTermination()'''
+    ssc.awaitTermination()
 
 
 
@@ -99,20 +99,3 @@ if __name__ == "__main__":
 
 
 
-
-# cnf = SparkConf()
-# cnf.setAppName("EmailClassifier")
-# #sc = SparkContext(conf = cnf) # Connects to the Spark Cluster
-# sc = SparkContext.getOrCreate()
-# ssc = StreamingContext(sc, 2)
-
-# # To make ssc fault tolerant
-# ssc.checkpoint("CheckPoint EC")
-
-# dataStream = ssc.socketTextStream("localhost", 6300)
-# temp = dataStream.map(lambda row : (row.Subject, row.Message))
-# temp.pprint()
-
-# ssc.start()
-# ssc.awaitTermination()
-# ssc.stop()'''
